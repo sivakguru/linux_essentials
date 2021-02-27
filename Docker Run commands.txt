@@ -1,0 +1,25 @@
+to Run Apach Drill:
+-------------------
+docker run -i --name drill -p 8047:8047 -p 31010:31010 -v "C:/Users/sivkumar/Documents/Github Repositories/Sample Data":/usr/local/src --detach -t apache/drill /bin/bash
+
+Aprache Drill JDBC connection string with zookeeper:
+----------------------------------------------------
+jdbc:drill:zk={host}/{server}[;schema={database}]
+
+Aprache Drill JDBC connection string with drillbits:
+----------------------------------------------------
+jdbc:drill:drillbit=localhost
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+to RUN Postgis:
+----------------
+docker run --name=postgres_gis --hostname=c8a2a3c04540 --env=POSTGRES_PASSWORD=postgres --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/postgresql/13/bin --env=GOSU_VERSION=1.12 --env=LANG=en_US.utf8 --env=PG_MAJOR=13 --env=PG_VERSION=13.1-1.pgdg100+1 --env=PGDATA=/var/lib/postgresql/data --env=POSTGIS_MAJOR=3 --env=POSTGIS_VERSION=3.1.1+dfsg-1.pgdg100+1 --volume=/var/lib/postgresql/data -p 5432:5432 --restart=no --label='maintainer=PostGIS Project - https://postgis.net' --detach=true postgis/postgis postgres
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+to RUN Apache Airflow:
+----------------------
+docker run --name=hardcore_heyrovsky --hostname=c641822f862d --user=airflow --env=PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=LANG=en_US.UTF-8 --env=GPG_KEY=0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D --env=PYTHON_VERSION=3.7.6 --env=PYTHON_PIP_VERSION=20.0.2 --env=PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/d59197a3c169cef378a22428a3fa99d33e080a5d/get-pip.py --env=PYTHON_GET_PIP_SHA256=421ac1d44c0cf9730a088e337867d974b91bdce4ea2636099275071878cc189e --env=DEBIAN_FRONTEND=noninteractive --env=TERM=linux --env=AIRFLOW_HOME=/usr/local/airflow --env=LANGUAGE=en_US.UTF-8 --env=LC_ALL=en_US.UTF-8 --env=LC_CTYPE=en_US.UTF-8 --env=LC_MESSAGES=en_US.UTF-8 --volume='C:/Users/sivkumar/Documents/Github Repositories/apache_airflow:/usr/local/airflow/dags' --workdir=/usr/local/airflow -p 8080:8080 --expose=5555/tcp --expose=8793/tcp --restart=no --label='maintainer=Puckel_' --detach=true puckel/docker-airflow webserver
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
